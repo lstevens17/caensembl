@@ -25,17 +25,8 @@ use strict;
 use base qw(EnsEMBL::Web::Document::Element);
 
 sub content {
-  my $species_defs = shift->species_defs;
-  my $html = '<hr /><div id="fat-footer">';
 
-  $html .= qq(
-              <div class="column-four left">
-                <h3>Contact Us</h3>
-                <p>To get in touch, email <a href="mailto:lewis.stevens@ed.ac.uk">lewis.stevens@ed.ac.uk</a></p>
-              </div>
-  );
-
-  return $html;
+  return '';
 }
 
 1;
