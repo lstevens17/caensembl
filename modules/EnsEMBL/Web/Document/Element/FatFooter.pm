@@ -35,7 +35,7 @@ sub content {
               </div>
   );
 
-  return '';
+  return $html;
 }
 
 1;
