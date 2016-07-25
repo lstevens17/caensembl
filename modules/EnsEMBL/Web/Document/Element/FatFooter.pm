@@ -32,6 +32,7 @@ sub content {
   $html .= qq(
               <div class="column-four left">
                 <h3><a href="http://caenorhabditis.org">caenorhabditis.org</a></h3>
+                <p>Our homepage</p>
               </div>
   );
 
@@ -39,12 +40,14 @@ sub content {
  $html .= qq(
               <div class="column-four left">
                 <h3><a href="http://download.caenorhabditis.org/data_overview.html">Data Overview</a></h3>
+                <p>See an overview of our progress...</p>
               </div>
   );
 
   $html .= qq(
               <div class="column-four left">
                 <h3><a href="http://dhttp://bang.bio.ed.ac.uk:4567/">BLAST</a></h3>
+                <p>BLAST sequences against our genomes, transcriptomes and proteomes...</p>
               </div>
   );
 
@@ -52,6 +55,7 @@ sub content {
   $html .= qq(
               <div class="column-four left">
                 <h3><a href="http://download.caenorhabditis.org/">Download</a></h3>
+                <p>Dowload files related to the CGP...</p>
               </div>
   );
 
