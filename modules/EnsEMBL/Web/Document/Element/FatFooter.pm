@@ -31,49 +31,27 @@ sub content {
 
   $html .= qq(
               <div class="column-four left">
-                <h3>About Us</h3>
-                <p><a href="http://www.google.co.uk">About us</a></p>
-                <p><a href="http://ensemblgenomes.org/info/about/contact">Contact us</a></p>
-                <p><a href="http://ensemblgenomes.org/info/publications">Citing Ensembl Genomes</a></p>
-                <p><a href="http://www.ebi.ac.uk/about/privacy">Privacy policy</a></p>
-                <p><a href="http://www.ensemblgenomes.org/info/about/cookies">Cookies</a></p>
-                <p><a href="http://www.ebi.ac.uk/Information/termsofuse.html">EMBL-EBI Terms of use</a></p>
-                <p><a href="http://ensemblgenomes.org/info/about/legal">Disclaimer</a></p>
+                <h3><a href="http://caenorhabditis.org">caenorhabditis.org</a></h3>
               </div>
   );
 
 
  $html .= qq(
               <div class="column-four left">
-                <h3>Get help</h3>
-                <p><a href="/info/website/">Using this website</a></p>
-                <p><a href="http://ensemblgenomes.org/info">Documentation</a></p>
-                <p><a href="/info/website/upload">Adding custom tracks</a></p>
-                <p><a href="/info/website/ftp/index.html">Downloading data</a></p>
+                <h3><a href="http://download.caenorhabditis.org/data_overview.html">Data Overview</a></h3>
               </div>
   );
 
-  foreach("bacteria","fungi","plants","protists","metazoa"){
-    $sister_sites .= qq(<p><a href="http://$_.ensembl.org">Ensembl ${\ucfirst($_)}</a></p>) if $species_defs->EG_DIVISION ne $_;
-  }
-
   $html .= qq(
               <div class="column-four left">
-                <h3>Our sister sites</h3>
-                $sister_sites
+                <h3><a href="http://dhttp://bang.bio.ed.ac.uk:4567/">BLAST</a></h3>
               </div>
   );
 
 
   $html .= qq(
               <div class="column-four left">
-                <h3>Follow us</h3>
-                <p><a class="media-icon" href="http://www.ensembl.info/">
-                  <img alt="[RSS logo]" title="Ensembl blog" src="/i/rss_icon_16.png"></a>
-                  <a href="http://www.ensembl.info/">Blog</a></p>
-                <p><a class="media-icon" href="https://twitter.com/ensemblgenomes">
-                  <img alt="[twitter logo]" title="Follow us on Twitter!" src="/i/twitter.png"></a>
-                    <a href="https://twitter.com/ensemblgenomes">Twitter</a></p>
+                <h3><a href="http://download.caenorhabditis.org/">Download</a></h3>
               </div>
   );
 
