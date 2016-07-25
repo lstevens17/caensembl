@@ -30,7 +30,7 @@ sub links {
   
   push @links, 'blast',         '<a class="constant" href="http://bang.bio.ed.ac.uk:4567">Blast</a>';
   push @links, 'downloads',     '<a class="constant" href="/info/website/ftp/index.html">Downloads</a>';
-  push @links, 'homepage',      '<a class="constant" href="http://caenorhabditisgenomes.wordpress.com/">Homepage</a>';
+  push @links, 'homepage',      '<a class="constant" href="http://caenorhabditis.org">Homepage</a>';
 
   return \@links;
 }
