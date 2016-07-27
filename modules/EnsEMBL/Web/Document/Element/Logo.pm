@@ -25,7 +25,6 @@ sub content {
   my $url    = $self->href || $self->home_url;
   my $hub    = $self->hub;
   my $type   = $hub->type;
-  my $e_logo = '<img src="/i/e.png" alt="Ensembl Genomes Home" title="Ensembl Genomes Home" class="print_hide" style="width:43px;height:40px" />';
 
   if ($type eq 'Help') {
     return sprintf( '%s%s%s',
@@ -51,9 +50,6 @@ sub e_logo {
 ### a
   my $self = shift;
   my $alt = 'Ensembl Genomes Home';
-  return sprintf(
-    '<a href="%s"><img src="%s%s" alt="%s" title="%s" class="print_hide" style="width:%spx;height:%spx" /></a>',
-    'http://www.ensemblgenomes.org/', $self->img_url, 'e.png', $alt, $alt, 43, 40
   );
 }
 
