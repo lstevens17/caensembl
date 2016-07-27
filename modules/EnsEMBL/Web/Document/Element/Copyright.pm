@@ -32,6 +32,7 @@ sub content {
   <div class="column-two left">
 		   %s - %s
 		  &copy; <span class="print_hide"><a href="http://www.ed.ac.uk/" style="white-space:nowrap">Edinburgh University</a><a>/</a><a href="http://www.ebi.ac.uk/" style="white-space:nowrap">EBI</a></span>
+      <span class="screen_hide_inline">CGP Ensembl</span>
   </div>),     "CGP Ensembl", "July 2016"
 ## END CAENSEMBL MODIFICATIONS
                );
