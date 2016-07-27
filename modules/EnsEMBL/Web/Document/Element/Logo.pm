@@ -60,7 +60,6 @@ sub e_logo {
 sub site_menu {
   return q{
     <span class="print_hide">
-      <span id="site_menu_button">&#9660;</span>
       <ul id="site_menu" style="display:none">
         <li><a href="http://www.ensemblgenomes.org">Ensembl Genomes</a></li>
         <li><a href="http://bacteria.ensembl.org">Ensembl Bacteria</a></li>
