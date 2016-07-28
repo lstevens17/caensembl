@@ -181,7 +181,7 @@ sub content {
   $html .= sprintf q{Taxonomy ID %s}, $hub->get_ExtURL_link("$taxid", 'UNIPROT_TAXONOMY', $taxid) if $taxid;
   $html .= '</p>';
   $html .= '</div>'; #species-badge
-}
+
 
 ###
 # BEGIN LEPBASE MODIFICATION...
