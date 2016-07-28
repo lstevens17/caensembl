@@ -70,7 +70,7 @@ sub external_sources {
 
   my $sources = $self->get_external_sources;
   return unless $sources;
-  
+
   my $hub          = $self->hub;
   my $species_defs = $hub->species_defs;
   my $html;
@@ -163,6 +163,8 @@ sub content {
     $provider_link = $hub->make_link_tag(text => $species_defs->PROVIDER_NAME, url => $species_defs->PROVIDER_URL) . " | ";
   }
 
+###
+# BEGIN LEPBASE MODIFICATION...
   my $html = '
     <div class="column-wrapper">
       <div class="box-left">
@@ -182,13 +184,8 @@ sub content {
   $html .= '</p>';
   $html .= '</div>'; #species-badge
 
-
-###
-# BEGIN LEPBASE MODIFICATION...
-  my $html = '';
-  
   my $about_text = $self->_other_text('about', $species);
-  $html .= '<div class="column-wrapper">'; 
+  $html .= '<div class="column-wrapper">';
     if ($about_text) {
     $html .= '<div class="round-box tinted-box unbordered">';
     $html .= $about_text;
@@ -197,26 +194,26 @@ sub content {
   }
   my $search_text = EnsEMBL::Web::Document::HTML::HomeSearch->new($hub)->render;
   if ($search_text) {
-    $html .= '<div class="round-box tinted-box unbordered">'; 
+    $html .= '<div class="round-box tinted-box unbordered">';
     $html .= '<h2>Getting started</h2>'.$search_text.'<br/>';
     $html .= '</div>';
   }
   $html .= '</div>';
-  
-  
+
+
 my (@sections);
-  
-  
-  
+
+
+
   my $assembly_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/${species}_assembly.html");
-  $assembly_text .= '<p>Statistics in the above table related to scaffolds > 1000bp in length</p>'; 
-  
-  
+  $assembly_text .= '<p>Statistics in the above table related to scaffolds > 1000bp in length</p>';
+
+
   $assembly_text .= $self->_other_text('assembly', $species);
   if ($assembly_text) {
     push(@sections, 'no-tint'.$assembly_text);
   }
-  
+
   my $annotation_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/stats_${species}.html");
   $annotation_text .= $self->_other_text('annotation', $species);
   if ($annotation_text) {
@@ -226,7 +223,7 @@ my (@sections);
   if ($reference_text) {
     push(@sections, $reference_text);
   }
-  
+
 
 #  push(@sections, $assembly_text);
 # $html .= '<div class="box-left"><div class="round-box tinted-box unbordered">' . $self->_assembly_text . '</div></div>';
@@ -235,7 +232,7 @@ my (@sections);
 
 # my @box_class = ('box-left', 'box-right');
 # my $side = 0;
-  
+
   if ($self->has_compara or $self->has_pan_compara) {
 ###
 # comment out for initial lepbase release
@@ -260,11 +257,11 @@ my (@sections);
   my $other_text = $self->_other_text('other', $species);
   push(@sections, $other_text) if $other_text =~ /\w/;
  #$html .= '<div class="' . $box_class[$side % 2] . '"><div class="round-box tinted-box unbordered">' . $other_text . '</div></div>' if $other_text =~ /\w/;
-  
+
   my @box_class = ('box-left', 'box-right');
   my $side = 0;
   foreach my $section (@sections){
-  	
+
   	if ($section =~ m/^(no-tint)/){
   	    $section =~ s/^(no-tint)//;
     	$html .= sprintf(qq{<div class="%s"><div class="round-box unbordered">%s</div></div>}, $box_class[$side++ %2],$section);
@@ -273,9 +270,9 @@ my (@sections);
     	$html .= sprintf(qq{<div class="%s"><div class="round-box tinted-box unbordered">%s</div></div>}, $box_class[$side++ %2],$section);
   	}
   }
-    
+
 # ...END LEPBASE MODIFICATION
-###  
+###
 
   my $ext_source_html = $self->external_sources;
   $html .= '<div class="column-wrapper"><div class="round-box tinted-box unbordered">' . $ext_source_html . '</div></div>' if $ext_source_html;
@@ -371,7 +368,7 @@ sub _assembly_text {
     my $am_url = $hub->url({'type' => 'UserData', 'action' => 'SelectFeatures'});
     $html .= qq(<p><a href="$am_url" class="modal_link nodeco"><img src="${img_url}24/tool.png" class="homepage-link" />Convert your data to $assembly coordinates</a></p>);
   }
-  
+
 ###
 # comment out for initial lepbase release
 #  $html .= sprintf '<p><a href="%s" class="nodeco" rel="modal_user_data">%sDisplay your data in %s</a></p>',
@@ -451,7 +448,7 @@ sub _genebuild_text {
 #    $html .= qq[<p><img src="${img_url}24/download.png" alt="" class="homepage-link" />Download genes, cDNAs, ncRNA, proteins - <span class="center"><a href="$fasta_url" class="nodeco">FASTA</a> - <a href="$gff3_url" class="nodeco">GFF3</a></span></p>];
 ###
   }
-  
+
 ###
 # comment out for initial lepbase release
 #  my $im_url = $hub->url({'type' => 'UserData', 'action' => 'UploadStableIDs'});
@@ -481,7 +478,7 @@ sub _compara_text {
   my $ensembl_version = $species_defs->SITE_RELEASE_VERSION;
 
   my $html = '<div class="homepage-icon">';
-  
+
   my $tree_text = $sample_data->{'GENE_TEXT'};
   my $tree_url  = $species_defs->species_path . '/Gene/Compara_Tree?g=' . $sample_data->{'GENE_PARAM'};
 
@@ -541,7 +538,7 @@ sub _compara_text {
 
   if ($species_defs->ENSEMBL_FTP_URL) {
     my $ftp_url = sprintf '%s/release-%s/emf/ensembl-compara/', $species_defs->ENSEMBL_FTP_URL, $ensembl_version;
-    $html .= qq(<p><a href="$ftp_url" class="nodeco"><img src="${img_url}24/download.png" alt="" class="homepage-link" />Download alignments</a> (EMF)</p>) 
+    $html .= qq(<p><a href="$ftp_url" class="nodeco"><img src="${img_url}24/download.png" alt="" class="homepage-link" />Download alignments</a> (EMF)</p>)
       unless $self->is_bacteria;
   }
   my $aligns = EnsEMBL::Web::Component::GenomicAlignments->new($hub)->content;
@@ -702,21 +699,21 @@ sub _other_text {
 
 sub _has_compara {
   my $self           = shift;
-  my $db_name        = shift || 'compara';             
-  my $object_type    = shift;                           
+  my $db_name        = shift || 'compara';
+  my $object_type    = shift;
   my $hub            = $self->hub;
   my $species_defs   = $hub->species_defs;
   my $sample_gene_id = $species_defs->SAMPLE_DATA->{'GENE_PARAM'};
   my $db             = $hub->database($db_name);
   my $has_compara    = 0;
-  
+
   if ($db) {
-    if ($object_type) { 
+    if ($object_type) {
       if ($sample_gene_id) {
         # check existence of a specific data type for the sample gene
         my $member_adaptor = $db->get_GeneMemberAdaptor;
         my $object_adaptor = $db->get_adaptor($object_type);
-  
+
         if (my $member = $member_adaptor->fetch_by_stable_id($sample_gene_id)) {
           if ($object_type eq 'Family' and $self->is_bacteria) {
             $member = $member->get_all_SeqMembers->[0];
@@ -725,29 +722,29 @@ sub _has_compara {
           $has_compara = @$objects;
         }
       }
-    } else { 
+    } else {
       # no object type specified, simply check if this species is in the db
       my $genome_db_adaptor = $db->get_GenomeDBAdaptor;
       my $genome_db;
-      eval{ 
+      eval{
         $genome_db = $genome_db_adaptor->fetch_by_registry_name($hub->species);
       };
       $has_compara = $genome_db ? 1 : 0;
     }
   }
 
-  return $has_compara;  
+  return $has_compara;
 }
 
 # shortcuts
-sub has_compara     { 
+sub has_compara     {
   my $self = shift;
-  return $self->_has_compara('compara', @_); 
+  return $self->_has_compara('compara', @_);
 }
 
-sub has_pan_compara     { 
+sub has_pan_compara     {
   my $self = shift;
-  return $self->_has_compara('compara_pan_ensembl', @_); 
+  return $self->_has_compara('compara_pan_ensembl', @_);
 }
 
 sub is_bacteria {
