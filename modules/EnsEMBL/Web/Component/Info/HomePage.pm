@@ -192,7 +192,9 @@ sub content {
   }
   my $search_text = EnsEMBL::Web::Document::HTML::HomeSearch->new($hub)->render;
   if ($search_text) {
-    $html .= '<div class="round-box tinted-box unbordered">';
+    $html .= '<div class="column-wrapper">
+          <div class="box-left">
+    <div class="round-box tinted-box unbordered">';
     $html .= '<h2>Getting started</h2>'.$search_text.'<br/>';
     $html .= '</div>';
   }
