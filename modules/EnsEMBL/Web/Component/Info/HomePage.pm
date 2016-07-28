@@ -166,7 +166,7 @@ sub content {
 ###
 # BEGIN LEPBASE MODIFICATION...
   my $html = '
-    <div class="column-wrapper">
+    <div class="column-wrappy">
       <div class="box-left">
         <div class="species-badge">';
 
