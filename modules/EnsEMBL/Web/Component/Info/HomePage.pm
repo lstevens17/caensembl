@@ -166,8 +166,6 @@ sub content {
 ###
 # BEGIN LEPBASE MODIFICATION...
   my $html = '
-    <div class="column-wrappy">
-      <div class="box-left">
         <div class="species-badge">';
 
   $html .= qq(<a class="species_lightbox _ht" href="${img_url}species/large/$species.png" title="Click to enlarge"><img src="${img_url}species/64/$species.png" alt="" title="$sound" /></a>) unless $self->is_bacteria;
