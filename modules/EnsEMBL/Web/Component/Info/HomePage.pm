@@ -200,6 +200,13 @@ sub content {
   }
   $html .= '</div>';
 
+  my $download_links = '<div class="column-wrapper">
+        <div class="box-right">
+  <div class="round-box tinted-box unbordered">
+  <p>Testing...</p>
+  </div>/div></div>';
+
+
 
 my (@sections);
 
