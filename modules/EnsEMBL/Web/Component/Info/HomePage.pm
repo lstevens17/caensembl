@@ -163,6 +163,26 @@ sub content {
     $provider_link = $hub->make_link_tag(text => $species_defs->PROVIDER_NAME, url => $species_defs->PROVIDER_URL) . " | ";
   }
 
+  my $html = '
+    <div class="column-wrapper">
+      <div class="box-left">
+        <div class="species-badge">';
+
+  $html .= qq(<a class="species_lightbox _ht" href="${img_url}species/large/$species.png" title="Click to enlarge"><img src="${img_url}species/64/$species.png" alt="" title="$sound" /></a>) unless $self->is_bacteria;
+
+  if ($common_name =~ /\./) {
+    $html .= qq(<h1>$display_name</h1>);
+  } else {
+    $html .= qq(<h1>$common_name</h1><p>$display_name</p>);
+  }
+
+  $html .= '<p class="taxon-id">';
+  $html .= 'Data Source ' . $provider_link if $provider_link;
+  $html .= sprintf q{Taxonomy ID %s}, $hub->get_ExtURL_link("$taxid", 'UNIPROT_TAXONOMY', $taxid) if $taxid;
+  $html .= '</p>';
+  $html .= '</div>'; #species-badge
+}
+
 ###
 # BEGIN LEPBASE MODIFICATION...
   my $html = '';
