@@ -210,7 +210,11 @@ sub content {
 
 my (@sections);
 
-
+  my $annotation_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/stats_${species}.html");
+  $annotation_text .= $self->_other_text('annotation', $species);
+  if ($annotation_text) {
+    push(@sections, 'no-tint'.$annotation_text);
+  }
 
   my $assembly_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/${species}_assembly.html");
   $assembly_text .= '<p>Statistics in the above table related to scaffolds > 1000bp in length</p>';
@@ -221,12 +225,6 @@ my (@sections);
     push(@sections, 'no-tint'.$assembly_text);
   }
 ## CAENOMODS
-
-  my $annotation_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/stats_${species}.html");
-  $annotation_text .= $self->_other_text('annotation', $species);
-  if ($annotation_text) {
-    push(@sections, 'no-tint'.$annotation_text);
-  }
   my $reference_text = $self->_other_text('references', $species);
   if ($reference_text) {
     push(@sections, $reference_text);
