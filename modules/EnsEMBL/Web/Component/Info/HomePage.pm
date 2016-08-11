@@ -201,11 +201,10 @@ sub content {
     $html .= '</div>';
   }
 
-  my $download_links = '<div class="column-wrapper">
-        <div class="box-right">
+  my $download_links = '<div class="box-right">
   <div class="round-box tinted-box unbordered">
   <p>Testing...</p>
-  </div></div></div>';
+  </div></div>';
   if ($download_links) {
     $html .= $download_links;
   }
