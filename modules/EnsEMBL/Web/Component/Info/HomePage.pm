@@ -205,7 +205,9 @@ sub content {
   <div class="round-box tinted-box unbordered">
   <p>Testing...</p>
   </div>/div></div>';
-
+  if ($download_links) {
+    $html .= $search_text;
+  }
 
 
 my (@sections);
