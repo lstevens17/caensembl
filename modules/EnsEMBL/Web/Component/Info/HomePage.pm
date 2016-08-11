@@ -199,12 +199,13 @@ sub content {
     $html .= '</div>';
   }
 
-  my $download_links = '<div class="box-right">
-  <div class="round-box tinted-box unbordered">
-  <p>Testing...</p>
-  </div></div>';
+  my $download_links = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/download_${species}.html");
   if ($download_links) {
     $html .= $download_links;
+    $html .= '<div class="box-right">
+    <div class="round-box tinted-box unbordered">
+    <p>Testing...</p>
+    </div></div>';
   }
 
 
