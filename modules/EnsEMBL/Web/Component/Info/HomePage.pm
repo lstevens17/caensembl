@@ -203,7 +203,7 @@ sub content {
   if ($download_links) {
     $html .= '<div class="box-right">
     <div class="round-box tinted-box unbordered">
-    <p>Testing...</p>'.$download_links.'
+    <h2>Download links</h2>'.$download_links.'
     </div></div>';
   }
 
