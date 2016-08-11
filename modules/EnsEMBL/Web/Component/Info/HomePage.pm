@@ -206,7 +206,7 @@ sub content {
   <p>Testing...</p>
   </div>/div></div>';
   if ($download_links) {
-    $html .= $search_text;
+    $html .= $download_links;
   }
 
 
