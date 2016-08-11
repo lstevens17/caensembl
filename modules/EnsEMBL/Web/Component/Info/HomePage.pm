@@ -218,7 +218,7 @@ my (@sections);
 ## CAENOMODS
   $assembly_text .= $self->_other_text('assembly', $species);
   if ($assembly_text) {
-    push(@sections, $assembly_text);
+    push(@sections, 'no-tint'.$assembly_text);
   }
 ## CAENOMODS
 
