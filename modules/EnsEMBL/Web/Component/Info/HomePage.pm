@@ -197,14 +197,15 @@ sub content {
     <div class="round-box tinted-box unbordered">';
     $html .= '<h2>Getting started</h2>'.$search_text.'<br/>';
     $html .= '</div>';
+    $html .= '</div>';
+    $html .= '</div>';
   }
-  $html .= '</div>';
 
   my $download_links = '<div class="column-wrapper">
         <div class="box-right">
   <div class="round-box tinted-box unbordered">
   <p>Testing...</p>
-  </div>/div></div>';
+  </div></div></div>';
   if ($download_links) {
     $html .= $download_links;
   }
