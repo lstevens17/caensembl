@@ -215,11 +215,12 @@ my (@sections);
   my $assembly_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/${species}_assembly.html");
   $assembly_text .= '<p>Statistics in the above table related to scaffolds > 1000bp in length</p>';
 
-
+## CAENOMODS
   $assembly_text .= $self->_other_text('assembly', $species);
   if ($assembly_text) {
-    push(@sections, 'no-tint'.$assembly_text);
+    push(@sections, $assembly_text);
   }
+## CAENOMODS
 
   my $annotation_text = EnsEMBL::Web::Controller::SSI::template_INCLUDE($self, "/ssi/species/stats_${species}.html");
   $annotation_text .= $self->_other_text('annotation', $species);
