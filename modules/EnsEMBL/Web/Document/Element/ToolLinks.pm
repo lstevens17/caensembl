@@ -27,8 +27,8 @@ sub links {
   my $sd    = $self->species_defs;
   my @links;
 
-  push @links, 'BLAST',       '<a class="constant" href="http://bang.bio.ed.ac.uk:4567/">BLAST</a>';
-  push @links, 'Download',         '<a class="constant" href="http://download.caenorhabditis.org">Download</a>';
+  push @links, 'BLAST',       '<a class="constant" href="http://blast.caenorhabditis.org/">BLAST</a>';
+  push @links, 'Download',         '<a class="constant" href="http://download.caenorhabditis.org">Downloads</a>';
   push @links, 'caenorhabditis.org',     '<a class="constant" href="http://caenorhabditis.org">caenorhabditis.org</a>';
 
 
