@@ -1,17 +1,17 @@
-<h3>Coming soon</h3>
+<h3>Other genomes</h3>
 <p>
   <ul>
     <li>
-      <b>C. sp. 34 (long-read assembly currently in progress, Tasei Kikuchi <em>et al.</em>)</b>
+      <b>C. sp. 34</b> (long-read assembly currently in progress, Tasei Kikuchi <em>et al.</em>)
     </li>
     <li>
-      <b>C. nigoni (long-read assembly currently in progress, Erich Schwarz)</b>
+      <b>C. nigoni</b> (long-read assembly currently in progress, Erich Schwarz)
     </li>
     <li>
-      <b>C. tropicalis (long-read reassembly currently in progress, Erich Schwarz)</b>
+      <b>C. tropicalis</b> (long-read reassembly currently in progress, Erich Schwarz)
     </li>
     <li>
-      <b>C. wallacei (long-read assembly currently in progress, Erich Schwarz)</b>
+      <b>C. wallacei</b> (long-read assembly currently in progress, Erich Schwarz)
     </li>
   </ul>
 </p>
