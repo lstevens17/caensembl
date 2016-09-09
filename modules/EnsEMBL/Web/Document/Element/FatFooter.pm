@@ -46,7 +46,7 @@ sub content {
 
   $html .= qq(
               <div class="column-four left">
-                <h3><a href="http://dhttp://bang.bio.ed.ac.uk:4567/">BLAST</a></h3>
+                <h3><a href="http://http://blast.caenorhabditis.org/">BLAST</a></h3>
                 <p>BLAST sequences against our genomes, transcriptomes and proteomes</p>
               </div>
   );
